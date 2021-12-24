@@ -1,0 +1,48 @@
+version: '3.3'
+
+networks:
+  internal_network:
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: '${APP_NAME}-server'
+    hostname: server
+    ports:
+      - '${APP_PORT}:8080'
+    environment:
+      - 'DATABASE_URL=postgresql+pg8000://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:${DB_PORT}/${POSTGRES_DB}'
+    depends_on:
+      - db
+    networks:
+      - internal_network
+
+  db:
+    image: postgres
+    hostname: db
+    container_name: '${APP_NAME}-db'
+    restart: always
+    ports:
+      - ${DB_PORT}:5432
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - internal_network
+
+  adminer:
+    image: adminer
+    hostname: adminer
+    depends_on: 
+      - db
+    restart: always
+    ports:
+      - '${APP_DB_ADMINER_PORT}:8080'
+    networks:
+      - internal_network
+
+volumes:
+  db_data:

@@ -1,2 +1,3 @@
+docker-compose down
 IMAGE_NAME=todo-spring
 docker stop $(docker ps -a -q --filter ancestor=${IMAGE_NAME} --format="{{.ID}}")
