@@ -18,7 +18,7 @@
     <div class="container">
         <h1>My Tasks</h1>
         <ul class="list-group">
-            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+            <a href="#" class="list-group-item list-group-item-action" aria-current="true" th:each="task : ${tasks}">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1" th:text="${task.title}"></h5>
                     <button class="btn btn-sm btn-danger">X</button>
