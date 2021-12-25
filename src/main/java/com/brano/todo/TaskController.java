@@ -9,6 +9,8 @@ public class TaskController {
 
 	@GetMapping(value={"/", "/list"})
 	public String list(Model model) {
+		Task task = new Task("Foo Task", "Foo Description");
+		model.addAttribute("task", task);
 		return "list";
 	}
 }

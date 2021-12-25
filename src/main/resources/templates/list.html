@@ -20,18 +20,10 @@
         <ul class="list-group">
             <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Create TODO list app in different flanguages</h5>
+                    <h5 class="mb-1" th:text="${task.title}"></h5>
                     <button class="btn btn-sm btn-danger">X</button>
                 </div>
-                <p class="mb-1">Create TODO list app in React, PHP + Nette, Python + Flash, Java Spring, ...</p>
-                <small>That will be awesome!</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Deploy cotainers on the Synology NAS</h5>
-                    <button class="btn btn-sm btn-danger">X</button>
-                </div>
-                <p class="mb-1">Run sample Docker container on Synology NAS and prove it can be accessed from LAN.</p>
+                <p class="mb-1" th:text="${task.description}"></p>
                 <small>That will be awesome!</small>
             </a>
         </ul>
