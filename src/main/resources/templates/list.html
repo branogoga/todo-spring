@@ -24,7 +24,7 @@
                     <a class="btn btn-sm btn-danger" th:href="@{/remove(id=${task.id})}">X</a>
                 </div>
                 <p class="mb-1" th:text="${task.description}"></p>
-                <small>That will be awesome!</small>
+                <small class="mb-1" th:text="${#dates.format(task.createdAt, 'dd.MM.yyyy HH:mm:ss')}"></small>
             </li>
         </ul>
         <div class="d-flex justify-content-center">

@@ -1,9 +1,13 @@
 package com.brano.todo;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class Task {
@@ -12,7 +16,10 @@ public class Task {
     private Integer id;
 
     private String title;
-    private String description;    
+    private String description;
+
+    @CreationTimestamp
+    private Date createdAt;
 
     protected Task() {}
 
@@ -31,6 +38,10 @@ public class Task {
 
     public String getDescription() {
         return description;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
 }
