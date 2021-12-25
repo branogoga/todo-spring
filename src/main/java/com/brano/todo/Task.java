@@ -14,6 +14,8 @@ public class Task {
     private String title;
     private String description;    
 
+    protected Task() {}
+
     public Task(String title, String description) {
         this.title = title;
         this.description = description;

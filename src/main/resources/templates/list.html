@@ -18,17 +18,17 @@
     <div class="container">
         <h1>My Tasks</h1>
         <ul class="list-group">
-            <a href="#" class="list-group-item list-group-item-action" aria-current="true" th:each="task : ${tasks}">
+            <li href="#" class="list-group-item list-group-item-action" aria-current="true" th:each="task : ${tasks}">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1" th:text="${task.title}"></h5>
-                    <button class="btn btn-sm btn-danger">X</button>
+                    <a class="btn btn-sm btn-danger" th:href="@{/remove(id=${task.id})}">X</a>
                 </div>
                 <p class="mb-1" th:text="${task.description}"></p>
                 <small>That will be awesome!</small>
-            </a>
+            </li>
         </ul>
         <div class="d-flex justify-content-center">
-            <button class="btn btn-success mt-2">Add task</button>
+            <a class="btn btn-success mt-2" th:href="@{/add}">Add task</a>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
