@@ -1,2 +1,1 @@
-./mvnw package
-docker build -t todo-spring .
+docker-compose build
